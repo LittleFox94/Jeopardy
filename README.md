@@ -9,7 +9,7 @@ Fully client-side HTML and Javascript implementation for Jeopardy-like games.
 
 ## Configuration file
 
-```json
+```js
 {
     "name":       "My super cool jeopardy questions",
     "categories": [
@@ -20,11 +20,11 @@ Fully client-side HTML and Javascript implementation for Jeopardy-like games.
                     "question": "Question number 1",
                     "answer":   "Answer for that question",
                 },
-                ...
+                //...
             ],
         },
         {
-            ...
+            //...
         },
     ]
 }
