@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeopardy</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="jquery-2.2.3.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body onload="game.main()">
+        <div id="gameSetup" class="gameStateWidget">
+            <h1>Neues Spiel</h1>
+            <label for="playerCount">Spieler:</label>
+            <select onchange="game.updatePlayerCount()" id="playerCount">
+                <option value="3">3 Spieler</option>
+                <option value="4">4 Spieler</option>
+                <option value="5">5 Spieler</option>
+                <option value="6">6 Spieler</option>
+            </select>
+            <div id="playerNameContainer"></div>
+            <button onclick="game.start()">Spiel starten</button>
+        </div>
+        <div id="gameView" class="gameStateWidget">
+            <h1 id="title">Jeopardy</h1>
+            <table id="jeopardyButtons"></table>
+            <div id="players"></div>
+        </div>
+        <div id="questionView" class="gameStateWidget">
+            <div>
+                <h2 id="questionCategory">{{Kategorie}}</h2>
+                <span id="questionContainer"></span>
+                <div>
+                    <button onclick="game.wrongAnswer()">Falsche Antwort</button>
+                    <button onclick="game.showAnswer()">Antwort anzeigen</button>
+                    <button onclick="game.correctAnswer()">Richtige Antwort</button>
+                    <button onclick="game.cancelQuestion()">Abbrechen</button>
+                </div>
+                <span id="answerContainer"></span>
+            </div>
+        </div>
+        <div id="adminView" class="gameStateWidget">
+            <h1>Adminbereich</h1>
+            <p>Hier kann eine Konfigurationsdatei für das Spiel eingetragen werden.</p>
+            <textarea id="appConfigTextarea"></textarea><br>
+            <button onclick="game.saveConfig()">Speichern</button>
+            <button onclick="game.resetState(true)">Einstellungen löschen</button>
+            <button onclick="game.newGame()">Spielstand löschen</button>
+        </div>
+        <div id="finishView" class="gameStateWidget">
+            <h1>Das Spiel ist vorbei</h1>
+            <ol id="playerScoreList"></ol>
+            <button onclick="game.newGame()">Neues Spiel</button>
+        </div>
+        <div id="footer">
+            <a href="javascript:game.goAdmin()">Adminbereich</a> - 
+            Copyright &copy; 2016 <a href="https://lf-net.org/~littlefox/">LittleFox</a> - 
+            Licensed under AGPL
+        </div>
+    </body>
+</html>
