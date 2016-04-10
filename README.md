@@ -7,6 +7,29 @@ Fully client-side HTML and Javascript implementation for Jeopardy-like games.
 * play with 3 to 6 players, with automatic or manual player change
 * reload the page by accident without problems or lost game state
 
+## Configuration file
+
+```json
+{
+    "name":       "My super cool jeopardy questions",
+    "categories": [
+        {
+            "name":      "Category 1",
+            "questions": [
+                {
+                    "question": "Question number 1",
+                    "answer":   "Answer for that question",
+                },
+                ...
+            ],
+        },
+        {
+            ...
+        },
+    ]
+}
+```
+
 ## Implementation details
 It is implemented with jQuery and a state-machine. All the application state
 (i.e. loaded configuration, game state, players, ...) is stored in the HTML5 LocalStorage
