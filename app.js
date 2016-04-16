@@ -124,8 +124,8 @@ window.game = (function() {
     this.correctAnswer = function() {
         state.players[state.currentPlayer].points += ((state.currentQuestion.question + 1) * 100);
         state.lockedQuestions[state.currentQuestion.category + "_" + state.currentQuestion.question] = true;
-        state.guiState = GUISTATES.gameView;
-        applyState();
+        showAnswer();
+        $('#cancelButton').text("Schließen");
     };
 
     this.wrongAnswer = function() {
@@ -136,6 +136,14 @@ window.game = (function() {
 
     this.cancelQuestion = function() {
         state.guiState = GUISTATES.gameView;
+        applyState();
+        $('#cancelButton').text("Abbrechen");
+    };
+
+    this.disableQuestion = function() {
+        state.lockedQuestions[state.currentQuestion.category + "_" + state.currentQuestion.question] = true;
+        $('#cancelButton').text("Schließen");
+        showAnswer();
         applyState();
     };
 
