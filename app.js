@@ -259,6 +259,7 @@ window.game = (function() {
                     updatePlayerPanel();
                     updateJeopardyButtons();
                     updateQuestionPopup();
+                    break;
                 case GUISTATES.finishScreen:
                     updateFinishScreen();
                     break;
